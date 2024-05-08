@@ -26,21 +26,21 @@ public class AppConsole {
     @Autowired
     private AutorService autorService;
 
-    private Scanner scanner = new Scanner(System.in);
-    private ConsumoAPI consumoAPI = new ConsumoAPI();
-    private ConvierteDatos conversor = new ConvierteDatos();
+    private Scanner teclado = new Scanner(System.in);
+    private ConsumoAPI consumoAPI = ConsumoAPI.getInstance();
+    private ConvierteDatos conversor = ConvierteDatos.getInstance();
 
     public void ejecutarOperaciones() {
         int operacion = -1;
         while (operacion != 0) {
             mostrarMenu();
             try {
-                operacion = scanner.nextInt();
+                operacion = teclado.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Opciones válidas: 0, 1, 2, 3, 4, 5");
                 continue;
             } finally {
-                scanner.nextLine();
+                teclado.nextLine();
             }
             switch (operacion) {
                 case 1:
@@ -84,7 +84,7 @@ public class AppConsole {
 
     private void buscarLibroPorTitulo() {
         System.out.println("Ingrese el nombre del libro que desea buscar");
-        String titulo = scanner.nextLine();
+        String titulo = teclado.nextLine();
 
         String json = consumoAPI.obtenerDatos(URL_BASE + "?search=" + titulo.replace(" ", "+"));
 
@@ -105,14 +105,14 @@ public class AppConsole {
 
     private void listarAutoresVivosPorAnio() {
         System.out.println("Ingrese el año de los autor(es) vivos que desea buscar: ");
-        int anio = scanner.nextInt();
+        int anio = teclado.nextInt();
         List<Autor> autoresVivos = autorService.obtenerAutoresVivosPorAnio(anio);
         autoresVivos.forEach(System.out::println);
     }
 
     private void listarLibrosPorIdioma() {
         System.out.println("Escriba el idioma deseado: ");
-        String abreviatura = scanner.nextLine();
+        String abreviatura = teclado.nextLine();
         Idioma idioma = Idioma.fromString(abreviatura);
 
         List<Libro> librosPorIdioma = libroService.obtenerLibrosPorIdioma(idioma);

@@ -3,7 +3,6 @@ package dev.emrx.challenge.literalura.model.entity;
 import dev.emrx.challenge.literalura.model.DatosAutor;
 import jakarta.persistence.*;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
