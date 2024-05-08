@@ -105,9 +105,14 @@ public class AppConsole {
 
     private void listarAutoresVivosPorAnio() {
         System.out.println("Ingrese el año de los autor(es) vivos que desea buscar: ");
-        int anio = teclado.nextInt();
-        List<Autor> autoresVivos = autorService.obtenerAutoresVivosPorAnio(anio);
-        autoresVivos.forEach(System.out::println);
+        int anio = 0;
+        try {
+            anio = teclado.nextInt();
+            List<Autor> autoresVivos = autorService.obtenerAutoresVivosPorAnio(anio);
+            autoresVivos.forEach(System.out::println);
+        } catch (InputMismatchException e) {
+            System.out.println("Ingreso un año inválido. No se pudo realizar la búsqueda.");
+        }
     }
 
     private void listarLibrosPorIdioma() {
