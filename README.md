@@ -27,3 +27,189 @@ Este es una aplicación de consola de Java Spring Boot que proporciona una inter
 
 La aplicación proporciona una interfaz de consola. Sigue las instrucciones para utilizar las diferentes características.
 
+```
+Menu de opciones:
+1- Buscar libro por titulo
+2- Listar libros registrados
+3- Listar autores registrados
+4- Listar autores vivos en un determinado año
+5- Listar libros por idioma
+0- Salir
+Elija la opción a través de su número:
+
+1
+Ingrese el nombre del libro que desea buscar
+don quijote
+El libro ya existe en la base de datos
+--------- LIBRO ---------
+Titulo: Don Quijote
+Autor: Cervantes Saavedra, Miguel de
+Idioma: es
+Numero de descargas: 12454
+-------------------------
+
+Menu de opciones:
+1- Buscar libro por titulo
+2- Listar libros registrados
+3- Listar autores registrados
+4- Listar autores vivos en un determinado año
+5- Listar libros por idioma
+0- Salir
+Elija la opción a través de su número:
+
+2
+--------- LIBRO ---------
+Titulo: Frankenstein; Or, The Modern Prometheus
+Autor: Shelley, Mary Wollstonecraft
+Idioma: en
+Numero de descargas: 73638
+-------------------------
+
+--------- LIBRO ---------
+Titulo: Calculus Made Easy: Being a very-simplest introduction to those beautiful methods which are generally called by the terrifying names of the Differential Calculus and the Integral Calculus
+Autor: Thompson, Silvanus P. (Silvanus Phillips)
+Idioma: en
+Numero de descargas: 7884
+-------------------------
+
+--------- LIBRO ---------
+Titulo: Alice's Adventures in Wonderland
+Autor: Carroll, Lewis
+Idioma: en
+Numero de descargas: 31169
+-------------------------
+
+--------- LIBRO ---------
+Titulo: La Odisea
+Autor: Homer
+Idioma: es
+Numero de descargas: 3340
+-------------------------
+
+--------- LIBRO ---------
+Titulo: La Divina Comedia
+Autor: Dante Alighieri
+Idioma: es
+Numero de descargas: 2254
+-------------------------
+
+--------- LIBRO ---------
+Titulo: Don Quijote
+Autor: Cervantes Saavedra, Miguel de
+Idioma: es
+Numero de descargas: 12454
+-------------------------
+
+Menu de opciones:
+1- Buscar libro por titulo
+2- Listar libros registrados
+3- Listar autores registrados
+4- Listar autores vivos en un determinado año
+5- Listar libros por idioma
+0- Salir
+Elija la opción a través de su número:
+
+3
+Autor: Shelley, Mary Wollstonecraft
+Fecha de nacimiento: 1797
+Fecha de fallecimiento: 1851
+Libros: [Frankenstein; Or, The Modern Prometheus]
+
+Autor: Thompson, Silvanus P. (Silvanus Phillips)
+Fecha de nacimiento: 1851
+Fecha de fallecimiento: 1916
+Libros: [Calculus Made Easy: Being a very-simplest introduction to those beautiful methods which are generally called by the terrifying names of the Differential Calculus and the Integral Calculus]
+
+Autor: Carroll, Lewis
+Fecha de nacimiento: 1832
+Fecha de fallecimiento: 1898
+Libros: [Alice's Adventures in Wonderland]
+
+Autor: Homer
+Fecha de nacimiento: -750
+Fecha de fallecimiento: -650
+Libros: [La Odisea]
+
+Autor: Dante Alighieri
+Fecha de nacimiento: 1265
+Fecha de fallecimiento: 1321
+Libros: [La Divina Comedia]
+
+Autor: Cervantes Saavedra, Miguel de
+Fecha de nacimiento: 1547
+Fecha de fallecimiento: 1616
+Libros: [Don Quijote]
+
+Menu de opciones:
+1- Buscar libro por titulo
+2- Listar libros registrados
+3- Listar autores registrados
+4- Listar autores vivos en un determinado año
+5- Listar libros por idioma
+0- Salir
+Elija la opción a través de su número:
+
+4
+Ingrese el año de los autor(es) vivos que desea buscar: 
+1875
+Autor: Thompson, Silvanus P. (Silvanus Phillips)
+Fecha de nacimiento: 1851
+Fecha de fallecimiento: 1916
+Libros: [Calculus Made Easy: Being a very-simplest introduction to those beautiful methods which are generally called by the terrifying names of the Differential Calculus and the Integral Calculus]
+
+Autor: Carroll, Lewis
+Fecha de nacimiento: 1832
+Fecha de fallecimiento: 1898
+Libros: [Alice's Adventures in Wonderland]
+
+Menu de opciones:
+1- Buscar libro por titulo
+2- Listar libros registrados
+3- Listar autores registrados
+4- Listar autores vivos en un determinado año
+5- Listar libros por idioma
+0- Salir
+Elija la opción a través de su número:
+
+5
+en - Ingles
+es - Español
+fr - Frances
+pt - Portugues
+Escriba el idioma deseado: 
+es
+--------- LIBRO ---------
+Titulo: La Odisea
+Autor: Homer
+Idioma: es
+Numero de descargas: 3340
+-------------------------
+
+--------- LIBRO ---------
+Titulo: La Divina Comedia
+Autor: Dante Alighieri
+Idioma: es
+Numero de descargas: 2254
+-------------------------
+
+--------- LIBRO ---------
+Titulo: Don Quijote
+Autor: Cervantes Saavedra, Miguel de
+Idioma: es
+Numero de descargas: 12454
+-------------------------
+
+Menu de opciones:
+1- Buscar libro por titulo
+2- Listar libros registrados
+3- Listar autores registrados
+4- Listar autores vivos en un determinado año
+5- Listar libros por idioma
+0- Salir
+Elija la opción a través de su número:
+
+0
+2024-05-08T11:00:14.253-05:00  INFO 12072 --- [challenge-literalura] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-08T11:00:14.254-05:00  INFO 12072 --- [challenge-literalura] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-08T11:00:14.256-05:00  INFO 12072 --- [challenge-literalura] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+```
