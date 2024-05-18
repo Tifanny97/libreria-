@@ -1,10 +1,10 @@
 package dev.emrx.challenge.literalura.model.entity;
 
 public enum Idioma {
-    INGLES("en", "Ingles"),
+    INGLES("en", "Inglés"),
     ESPANIOL("es", "Español"),
-    FRANCES("fr", "Frances"),
-    PORTUGUES("pt", "Portugues");
+    FRANCES("fr", "Francés"),
+    PORTUGUES("pt", "Portugués");
 
     private String abreviatura;
     private String nombre;
@@ -21,6 +21,10 @@ public enum Idioma {
             }
         }
         throw new IllegalArgumentException("Ningún idioma encontrado: " + text);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public String mostrar() {

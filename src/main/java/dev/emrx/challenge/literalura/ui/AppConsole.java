@@ -1,5 +1,7 @@
 package dev.emrx.challenge.literalura.ui;
 
+import dev.emrx.challenge.literalura.domain.AutorDto;
+import dev.emrx.challenge.literalura.domain.LibroDto;
 import dev.emrx.challenge.literalura.model.Datos;
 import dev.emrx.challenge.literalura.model.DatosLibro;
 import dev.emrx.challenge.literalura.model.entity.Autor;
@@ -89,17 +91,17 @@ public class AppConsole {
         String json = consumoAPI.obtenerDatos(URL_BASE + "?search=" + titulo.replace(" ", "+"));
 
         DatosLibro libroBuscado = conversor.obtenerDatos(json, Datos.class).libros().get(0);
-        Libro libroNuevo = libroService.guardarLibro(new Libro(libroBuscado));
+        LibroDto libroNuevo = libroService.guardarLibro(libroBuscado);
         System.out.println(libroNuevo);
     }
 
     private void listarLibrosRegistrados() {
-        List<Libro> librosRegistrados = libroService.obtenerLibros();
+        List<LibroDto> librosRegistrados = libroService.obtenerLibros();
         librosRegistrados.forEach(System.out::println);
     }
 
     private void listarAutoresRegistrados() {
-        List<Autor> autoresRegistrados = autorService.obtenerAutores();
+        List<AutorDto> autoresRegistrados = autorService.obtenerAutores();
         autoresRegistrados.forEach(System.out::println);
     }
 
@@ -108,7 +110,7 @@ public class AppConsole {
         int anio = 0;
         try {
             anio = teclado.nextInt();
-            List<Autor> autoresVivos = autorService.obtenerAutoresVivosPorAnio(anio);
+            List<AutorDto> autoresVivos = autorService.obtenerAutoresVivosPorAnio(anio);
             autoresVivos.forEach(System.out::println);
         } catch (InputMismatchException e) {
             System.out.println("Ingreso un año inválido. No se pudo realizar la búsqueda.");
@@ -120,7 +122,7 @@ public class AppConsole {
         String abreviatura = teclado.nextLine();
         Idioma idioma = Idioma.fromString(abreviatura);
 
-        List<Libro> librosPorIdioma = libroService.obtenerLibrosPorIdioma(idioma);
+        List<LibroDto> librosPorIdioma = libroService.obtenerLibrosPorIdioma(idioma);
         librosPorIdioma.forEach(System.out::println);
     }
 

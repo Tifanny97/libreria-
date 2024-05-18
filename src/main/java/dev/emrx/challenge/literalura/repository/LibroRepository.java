@@ -17,7 +17,7 @@ import java.util.Optional;
  * @version 1.0
  * @since 2024.1.1
  */
-@Repository
+
 public interface LibroRepository extends JpaRepository<Libro, Long> {
 
     /**

@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1.0
  * @since 2024.1.1
  */
-@Repository
+
 public interface AutorRepository extends JpaRepository<Autor, Long> {
 
     /**

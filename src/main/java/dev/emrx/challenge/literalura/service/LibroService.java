@@ -1,5 +1,7 @@
 package dev.emrx.challenge.literalura.service;
 
+import dev.emrx.challenge.literalura.domain.LibroDto;
+import dev.emrx.challenge.literalura.model.DatosLibro;
 import dev.emrx.challenge.literalura.model.entity.Idioma;
 import dev.emrx.challenge.literalura.model.entity.Libro;
 import dev.emrx.challenge.literalura.repository.LibroRepository;
@@ -30,25 +32,17 @@ public class LibroService {
      * @param libro El libro a guardar.
      * @return El libro guardado o el libro existente.
      */
-    public Libro guardarLibro(Libro libro) {
-        Optional<Libro> nuevo = repository.findByTitulo(libro.getTitulo());
+    public LibroDto guardarLibro(DatosLibro datos) {
+        Optional<Libro> nuevo = repository.findByTitulo(datos.titulo());
 
         if(!nuevo.isPresent()) {
-            return repository.save(libro);
+            Libro libro = repository.save(new Libro(datos));
+            return new LibroDto(libro);
         } else {
             System.out.println("El libro ya existe en la base de datos");
         }
 
-        return nuevo.get();
-    }
-
-    /**
-     * Este método recupera una lista de todas las entidades Libro.
-     *
-     * @return Una lista de entidades Libro.
-     */
-    public List<Libro> obtenerLibros() {
-        return repository.findAll();
+        return new LibroDto(nuevo.get());
     }
 
     /**
@@ -57,8 +51,19 @@ public class LibroService {
      * @param id El ID del libro a buscar.
      * @return El Libro si se encuentra, o null.
      */
-    public Libro obtenerLibroPorId(Long id) {
-        return repository.findById(id).orElse(null);
+    public LibroDto obtenerLibroPorId(Long id) {
+        return repository.findById(id).map(LibroDto::new).orElse(null);
+    }
+
+    /**
+     * Este método recupera una lista de todas las entidades Libro.
+     *
+     * @return Una lista de entidades Libro.
+     */
+    public List<LibroDto> obtenerLibros() {
+        return repository.findAll().stream()
+                .map(LibroDto::new)
+                .toList();
     }
 
     /**
@@ -67,7 +72,9 @@ public class LibroService {
      * @param idioma El idioma de los libros a buscar.
      * @return Una lista de entidades Libro que están en el idioma especificado.
      */
-    public List<Libro> obtenerLibrosPorIdioma(Idioma idioma) {
-        return repository.obtenerLibrosPorIdioma(idioma);
+    public List<LibroDto> obtenerLibrosPorIdioma(Idioma idioma) {
+        return repository.obtenerLibrosPorIdioma(idioma).stream()
+                .map(LibroDto::new)
+                .toList();
     }
 }
